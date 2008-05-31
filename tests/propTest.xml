@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+ <project xmlns:au="antlib:org.apache.ant.antunit"
+          xmlns="antlib:org.apache.tools.ant" >
+     
+     
+     <!-- - - - - - - - - - - - - - - - - - 
+             target: testThatSomePropsExist                     
+            - - - - - - - - - - - - - - - - - --> 
+ 
+ <target name="testThatSomePropsExist">
+    <au:assertPropertySet name="style.dir"  />
+    <au:assertPropertyEquals name="style.dir" value="xsl" />
+  </target>
+
+  
+     <!-- - - - - - - - - - - - - - - - - - 
+             target: testThatErrorPropGetsSet                     
+            - - - - - - - - - - - - - - - - - -->       
+  <target name="testThatErrorPropGetsSet">
+      <mxunittask server="localhost" port="8500"
+                  verbose="true"
+                  errorProperty="my.err.prop">
+       <testcase name="mxunit.PluginDemoTests.throwsanerrortest"  />
+     </mxunittask>      
+     <au:assertPropertySet name="my.err.prop" message="my.err.prop should be set in Task"  />
+  </target>
+     
+  
+     <!-- - - - - - - - - - - - - - - - - - 
+             target: testThatFailurePropGetsSet                     
+            - - - - - - - - - - - - - - - - - -->   
+  <target name="testThatFailurePropGetsSet">
+      <mxunittask server="localhost" port="8500"
+                  verbose="true"
+                  failureproperty="my.fail.prop">
+        <testcase name="mxunit.tests.samples.MyComponentTest"  />
+      </mxunittask>  
+     <au:assertPropertySet name="my.fail.prop" message="my.fail.prop should be set in Task"  />
+  </target>
+   
+     
+  <!-- - - - - - - - - - - - - - - - - - 
+          target: testThatPropDoesNotExistAfterSuccess                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="testThatPropDoesNotExistAfterSuccess">
+        <mxunittask server="localhost" port="8500"
+                    verbose="true"
+                    errorproperty="my.othererr.prop"
+                    failureproperty="my.otherfail.prop">
+            <testcase name="mxunit.tests.framework.MyCFCTest"  />
+         </mxunittask>  
+        <au:expectfailure message="failureproperty/errorproperty ON. Should fail.">
+            <au:assertPropertySet name="my.otherfail.prop" message="Should Not be set in Task"  />
+            <au:assertPropertySet name="my.othererr.prop" message="Should Not be set in Task"  />
+        </au:expectfailure>
+    </target>
+
+ 
+     
+
+     <!-- - - - - - - - - - - - - - - - - - 
+          target: testThatErrorPropertySetsFailurePropertyToo                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="testThatErrorPropertySetsFailurePropertyToo">
+       <mxunittask server="localhost" port="8500"
+                   verbose="true"
+                   errorProperty="my.err.prop"
+           	       failureproperty="my.fail.prop">
+          <testcase name="mxunit.PluginDemoTests.throwsanerrortest"  />
+      </mxunittask>   
+        <au:assertPropertySet name="my.fail.prop" message="my.fail.prop should be set in Task, also"  />
+   
+    </target>
+
+   
+ <!-- - - - - - - - - - - - - - - - - - 
+          target: testThatTaskIsNotBrokenWhenFailureOccursAndPropsAreNOTSet                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="testThatTaskIsNotBrokenWhenFailureOccursAndPropsAreNOTSet">
+        <mxunittask server="localhost" port="8500"
+                    verbose="true">
+            <testcase name="mxunit.PluginDemoTests.throwsanerrortest"  />
+            <testcase name="mxunit.tests.samples.MyComponentTest"  />
+        </mxunittask>
+        <au:expectfailure message="failureproperty ON. Should pass.">
+          <au:assertPropertySet name="my.fail.prop" message="my.fail.prop should NOT be set in Task"  />
+          <au:assertPropertySet name="my.err.prop" message="my.fail.prop should NOT be set in Task"  /> 
+        </au:expectfailure>
+    </target>
+
+     
+     
+     
+     
+ <target name="setUp">
+  <property file="../buildprops/build.properties" />
+    <taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask" classpath="../mxunit-ant.jar"   />
+  </target>
+
+</project>

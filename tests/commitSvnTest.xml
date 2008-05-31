@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+ <project xmlns:au="antlib:org.apache.ant.antunit"
+          xmlns="antlib:org.apache.tools.ant" >
+
+
+  <target name="testCommit">
+
+    <touch file="svnTest/Application.cfm" datetime="07/05/2007 6:00 am"/>
+    <svn username="${username}" password="${password}">
+     <commit message="Testing Commit for MXUnit Sandbox" dir="svnTest" recurse="true" />
+    
+    
+    <status path="svnTest/Application.cfm" 
+            textStatusProperty="testStatus.textStatus" 
+            propStatusProperty="testStatus.propStatus" 
+            lastChangedRevisionProperty="testStatus.lastCommitRevision" 
+            revisionProperty="testStatus.revision" 
+            lastCommitAuthorProperty="testStatus.lastCommitAuthor" />
+    </svn>
+    
+    <au:assertPropertyEquals name="testStatus.lastCommitAuthor" value="virtix"  />
+    <au:assertPropertyEquals name="testStatus.textStatus" value="normal"  />
+    
+    <au:expectfailure>
+      <au:assertPropertyEquals name="testStatus.lastCommitAuthor" value="joe"  />
+    </au:expectfailure> 
+    
+  </target>
+
+
+ <target name="setUp">
+   <!-- for log assertions -->
+  <au:logcontent level="verbose" />
+
+   <path id="project.classpath">
+     <pathelement location="../lib/svnjavahl.jar" />
+     <pathelement location="../lib/svnant.jar/" />
+     <pathelement location="../lib/svnClientAdapter.jar/" />
+   </path>
+   <property file="testprops.properties" />
+    <!-- load the svn task -->
+  <taskdef resource="svntask.properties" classpathref="project.classpath"/>
+
+  <!--
+    @pre some files and svn info need to be present!
+    The below may be a one time deal, but check out a few files from the
+    sandbox, delete them,
+    do an update and see if they come back.
+
+  <svn username="${username}" password="${password}">
+   <checkout url="
+   https://mxunit.googlecode.com/svn/mxunit/branches/sandbox"
+   recurse="false" destPath="svnTest" />
+  </svn>
+   -->
+  </target>
+
+
+  <!-- clean up -->
+  <target name="tearDown">
+     <!-- clean up -->
+  </target>
+
+
+</project>
+

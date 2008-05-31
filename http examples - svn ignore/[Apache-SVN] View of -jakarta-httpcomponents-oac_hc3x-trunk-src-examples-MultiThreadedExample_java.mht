@@ -1,0 +1,711 @@
+From: <Saved by Windows Internet Explorer 7>
+Subject: [Apache-SVN] View of /jakarta/httpcomponents/oac.hc3x/trunk/src/examples/MultiThreadedExample.java
+Date: Tue, 20 Nov 2007 12:55:59 -0500
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C82B74.B2B55C90"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3198
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trunk/src/examples/MultiThreadedExample.java?revision=554236&view=markup
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML lang=3Den xml:lang=3D"en" =
+xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>[Apache-SVN] View of =
+/jakarta/httpcomponents/oac.hc3x/trunk/src/examples/MultiThreadedExample.=
+java</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dutf-8"><!-- ViewVC :: http://www.viewvc.org/ -->
+<META content=3D"MSHTML 6.00.6000.16544" name=3DGENERATOR><LINK=20
+href=3D"http://svn.apache.org/viewvc-docroot/styles.css" type=3Dtext/css =
+
+rel=3Dstylesheet></HEAD>
+<BODY>
+<DIV class=3Dvc_navheader>
+<FORM action=3D/viewvc/ method=3Dget>
+<TABLE=20
+style=3D"PADDING-RIGHT: 0.1em; PADDING-LEFT: 0.1em; PADDING-BOTTOM: =
+0.1em; PADDING-TOP: 0.1em">
+  <TBODY>
+  <TR>
+    <TD><STRONG><A =
+href=3D"http://svn.apache.org/viewvc/">[Apache-SVN]</A> / <A=20
+      href=3D"http://svn.apache.org/viewvc/jakarta/">jakarta</A> / <A=20
+      =
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/">httpcompone=
+nts</A>=20
+      / <A=20
+      =
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/">oa=
+c.hc3x</A>=20
+      / <A=20
+      =
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/">trunk</A>=20
+      / <A=20
+      =
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/">src</A>=20
+      / <A=20
+      =
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/examples/">examples</A>=20
+      / <A=20
+      =
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/examples/MultiThreadedExample.java?view=3Dlog">MultiThreadedExample=
+.java</A>=20
+      </STRONG></TD>
+    <TD style=3D"TEXT-ALIGN: right"><STRONG>Repository:</STRONG> <SELECT =
+
+      onchange=3Dsubmit() name=3Droot> <OPTION =
+value=3D*viewroots*>Repository=20
+        Listing</OPTION> <OPTGROUP label=3D"Subversion =
+Repositories"><OPTION=20
+          selected>Apache-SVN</OPTION></OPTGROUP></SELECT> <INPUT =
+type=3Dsubmit value=3DGo> </TD></TR></TBODY></TABLE></FORM></DIV>
+<DIV=20
+style=3D"PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: right; =
+PADDING-BOTTOM: 5px; PADDING-TOP: 5px"><A=20
+href=3D"http://www.viewvc.org/"><IMG height=3D48 alt=3D"ViewVC logotype" =
+
+src=3D"http://svn.apache.org/viewvc-docroot/images/logo.png" =
+width=3D128></A></DIV>
+<H1>View of=20
+/jakarta/httpcomponents/oac.hc3x/trunk/src/examples/MultiThreadedExample.=
+java</H1>
+<P style=3D"MARGIN: 0px"><A=20
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/examples/"><IMG=20
+height=3D16 alt=3D"Parent Directory"=20
+src=3D"http://svn.apache.org/viewvc-docroot/images/back_small.png" =
+width=3D16>=20
+Parent Directory</A> | <A=20
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/examples/MultiThreadedExample.java?view=3Dlog#rev554236"><IMG=20
+height=3D16 alt=3D"Revision Log"=20
+src=3D"http://svn.apache.org/viewvc-docroot/images/log.png" width=3D16> =
+Revision=20
+Log</A> </P>
+<HR>
+
+<DIV class=3Dvc_summary>Revision <A=20
+href=3D"http://svn.apache.org/viewvc?view=3Drev&amp;revision=3D554236"><S=
+TRONG>554236</STRONG></A>=20
+- (<A=20
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/examples/MultiThreadedExample.java?revision=3D554236"><STRONG>downl=
+oad</STRONG></A>)=20
+(<A=20
+href=3D"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.hc3x/trun=
+k/src/examples/MultiThreadedExample.java?annotate=3D554236"><STRONG>annot=
+ate</STRONG></A>)=20
+<BR><EM>Sat Jul 7 18:15:09 2007 UTC</EM> (4 months, 2 weeks ago) by=20
+<EM>rolandw</EM> <BR>File size: 4628 byte(s) <PRE class=3Dvc_log>updated =
+ancient sample URL</PRE></DIV>
+<DIV id=3Dvc_markup><PRE><PRE><I><FONT color=3D#b22222>/*
+ * $Header: =
+/home/jerenkrantz/tmp/commons/commons-convert/cvs/home/cvs/jakarta-common=
+s//httpclient/src/examples/MultiThreadedExample.java,v 1.3 2004/02/22 =
+18:08:45 olegk Exp $
+ * $Revision$
+ * $Date$
+ *
+ * =
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ *
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed =
+with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version =
+2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or =
+implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ * =
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ *
+ * This software consists of voluntary contributions made by many
+ * individuals on behalf of the Apache Software Foundation.  For more
+ * information on the Apache Software Foundation, please see
+ * &lt;http://www.apache.org/&gt;.
+ *
+ * [Additional notices, if required by prior licensing conditions]
+ *
+ */</FONT></I>
+=20
+<B><FONT color=3D#a020f0>import</FONT></B> =
+org.apache.commons.httpclient.HttpClient;
+<B><FONT color=3D#a020f0>import</FONT></B> =
+org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
+<B><FONT color=3D#a020f0>import</FONT></B> =
+org.apache.commons.httpclient.methods.GetMethod;
+
+<I><FONT color=3D#b22222>/**
+ * An example that performs GETs from multiple threads.
+ *=20
+ * @author Michael Becke
+ */</FONT></I>
+<B><FONT color=3D#a020f0>public</FONT></B> <B><FONT =
+color=3D#a020f0>class</FONT></B> MultiThreadedExample {
+
+    <I><FONT color=3D#b22222>/**
+     * Constructor for MultiThreadedExample.
+     */</FONT></I>
+    <B><FONT color=3D#a020f0>public</FONT></B> MultiThreadedExample() {
+        <B><FONT color=3D#a020f0>super</FONT></B>();
+    }
+
+    <B><FONT color=3D#a020f0>public</FONT></B> <B><FONT =
+color=3D#a020f0>static</FONT></B> <B><FONT =
+color=3D#a020f0>void</FONT></B> main(String[] args) {
+       =20
+        <I><FONT color=3D#b22222>// Create an HttpClient with the =
+MultiThreadedHttpConnectionManager.
+</FONT></I>        <I><FONT color=3D#b22222>// This connection manager =
+must be used if more than one thread will
+</FONT></I>        <I><FONT color=3D#b22222>// be using the HttpClient.
+</FONT></I>        HttpClient httpClient =3D <B><FONT =
+color=3D#a020f0>new</FONT></B> HttpClient(<B><FONT =
+color=3D#a020f0>new</FONT></B> MultiThreadedHttpConnectionManager());
+        <I><FONT color=3D#b22222>// Set the default host/protocol for =
+the methods to connect to.
+</FONT></I>        <I><FONT color=3D#b22222>// This value will only be =
+used if the methods are not given an absolute URI
+</FONT></I>        httpClient.getHostConfiguration().setHost(<B><FONT =
+color=3D#bc8f8f>"jakarta.apache.org"</FONT></B>, 80, <B><FONT =
+color=3D#bc8f8f>"http"</FONT></B>);
+       =20
+        <I><FONT color=3D#b22222>// create an array of URIs to perform =
+GETs on
+</FONT></I>        String[] urisToGet =3D {
+            <B><FONT color=3D#bc8f8f>"/"</FONT></B>,
+            <B><FONT color=3D#bc8f8f>"/commons/"</FONT></B>,
+            <B><FONT color=3D#bc8f8f>"/commons/httpclient/"</FONT></B>,
+            <B><FONT =
+color=3D#bc8f8f>"http://svn.apache.org/viewvc/jakarta/httpcomponents/oac.=
+hc3x/"</FONT></B>
+        };
+       =20
+        <I><FONT color=3D#b22222>// create a thread for each URI
+</FONT></I>        GetThread[] threads =3D <B><FONT =
+color=3D#a020f0>new</FONT></B> GetThread[urisToGet.length];
+        <B><FONT color=3D#a020f0>for</FONT></B> (<B><FONT =
+color=3D#a020f0>int</FONT></B> i =3D 0; i &lt; threads.length; i++) {
+            GetMethod get =3D <B><FONT color=3D#a020f0>new</FONT></B> =
+GetMethod(urisToGet[i]);
+            get.setFollowRedirects(<B><FONT =
+color=3D#a020f0>true</FONT></B>);
+            threads[i] =3D <B><FONT color=3D#a020f0>new</FONT></B> =
+GetThread(httpClient, get, i + 1);
+        }
+       =20
+        <I><FONT color=3D#b22222>// start the threads
+</FONT></I>        <B><FONT color=3D#a020f0>for</FONT></B> (<B><FONT =
+color=3D#a020f0>int</FONT></B> j =3D 0; j &lt; threads.length; j++) {
+            threads[j].start();
+        }
+       =20
+    }
+   =20
+    <I><FONT color=3D#b22222>/**
+     * A thread that performs a GET.
+	 */</FONT></I>
+    <B><FONT color=3D#a020f0>static</FONT></B> <B><FONT =
+color=3D#a020f0>class</FONT></B> GetThread <B><FONT =
+color=3D#a020f0>extends</FONT></B> Thread {
+       =20
+        <B><FONT color=3D#a020f0>private</FONT></B> HttpClient =
+httpClient;
+        <B><FONT color=3D#a020f0>private</FONT></B> GetMethod method;
+        <B><FONT color=3D#a020f0>private</FONT></B> <B><FONT =
+color=3D#a020f0>int</FONT></B> id;
+       =20
+        <B><FONT color=3D#a020f0>public</FONT></B> GetThread(HttpClient =
+httpClient, GetMethod method, <B><FONT color=3D#a020f0>int</FONT></B> =
+id) {
+            <B><FONT color=3D#a020f0>this</FONT></B>.httpClient =3D =
+httpClient;
+            <B><FONT color=3D#a020f0>this</FONT></B>.method =3D method;
+            <B><FONT color=3D#a020f0>this</FONT></B>.id =3D id;
+        }
+       =20
+        <I><FONT color=3D#b22222>/**
+         * Executes the GetMethod and prints some satus information.
+         */</FONT></I>
+        <B><FONT color=3D#a020f0>public</FONT></B> <B><FONT =
+color=3D#a020f0>void</FONT></B> run() {
+           =20
+            <B><FONT color=3D#a020f0>try</FONT></B> {
+               =20
+                System.out.println(id + <B><FONT color=3D#bc8f8f>" - =
+about to get something from "</FONT></B> + method.getURI());
+                <I><FONT color=3D#b22222>// execute the method
+</FONT></I>                httpClient.executeMethod(method);
+               =20
+                System.out.println(id + <B><FONT color=3D#bc8f8f>" - get =
+executed"</FONT></B>);
+                <I><FONT color=3D#b22222>// get the response body as an =
+array of bytes
+</FONT></I>                <B><FONT color=3D#a020f0>byte</FONT></B>[] =
+bytes =3D method.getResponseBody();
+               =20
+                System.out.println(id + <B><FONT color=3D#bc8f8f>" - =
+"</FONT></B> + bytes.length + <B><FONT color=3D#bc8f8f>" bytes =
+read"</FONT></B>);
+               =20
+            } <B><FONT color=3D#a020f0>catch</FONT></B> (Exception e) {
+                System.out.println(id + <B><FONT color=3D#bc8f8f>" - =
+error: "</FONT></B> + e);
+            } <B><FONT color=3D#a020f0>finally</FONT></B> {
+                <I><FONT color=3D#b22222>// always release the =
+connection after we're done=20
+</FONT></I>                method.releaseConnection();
+                System.out.println(id + <B><FONT color=3D#bc8f8f>" - =
+connection released"</FONT></B>);
+            }
+        }
+      =20
+    }
+   =20
+}
+</PRE>
+</PRE></DIV>
+<HR>
+
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>
+      <ADDRESS><A href=3D"http://svn.apache.org/"><IMG alt=3D"Apache =
+Home"=20
+      src=3D"http://www.apache.org/images/apache_home.gif"></A> <A=20
+      href=3D"mailto:apache@apache.org"><IMG alt=3D"Apache Email"=20
+      =
+src=3D"http://www.apache.org/images/apache_email.gif"></A></ADDRESS></TD>=
+
+    <TD style=3D"TEXT-ALIGN: right"><STRONG><A=20
+      =
+href=3D"http://svn.apache.org/viewvc-docroot/help_rootview.html">ViewVC=20
+      Help</STRONG></A></TD></TR>
+  <TR>
+    <TD>Powered by <A href=3D"http://viewvc.tigris.org/">ViewVC =
+1.0.4</A></TD>
+    <TD style=3D"TEXT-ALIGN: =
+right">&nbsp;</TD></TR></TBODY></TABLE></BODY></HTML>
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://svn.apache.org/viewvc-docroot/images/logo.png
+
+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
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://svn.apache.org/viewvc-docroot/images/back_small.png
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAFVBMVEX///+MjIxaWloAAACEhIQx
+MTEhISEGONAYAAAAAXRSTlMAQObYZgAAAARnSUZnAAEAAJ1ObnoAAABWSURBVHjaY2BAgDQozWac
+AGEkG5uBaSYgQwHMEjY2ZMBkuDA4gBhGjC5KAgwMrMbGTKGhQPVMxsauoaEgRcbGQRBGsnFSaCBU
+WyjYSKAiJ4hJgoJAzQAmXQzoUDSMfgAAAABJRU5ErkJggg==
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://svn.apache.org/viewvc-docroot/images/log.png
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAABYUlE
+QVR42qWTT4oiMRTGfy8pEHTlznXTqzmCLr2KLno2vS0URRiLEmFuIDlDbV25qjt4BnFTQirJKrOY
+rpquEWykH3wkvLzvS96fAPwAfgM3ID6BGfAC8PN0OkVrbbTWxrquO3DORedc9N5H730MIcQQQjwe
+jxF4EyBaa7ler4hIB0qph77hcEjChzXO/X5PmqYopdjtdohI5xxgtVq1++R/8udbFovFw9e0Ao1I
+mqatiIiQ53knuFnX6zVKqXuBxtmQlsvlwzoACBDruqaqqrvAPM9bwSbvz4KDweCvgHOOqqo4n88U
+RcF0OmU8Hn/ZlX6/302hKApmsxnGGCaTCVmW3XVARNhsNt0UvPfcbjculwvGGObzOaPR6Mt56PV6
+qEZVa40xBhHhcDiglCLLMrbbLUqpFlprtNb/Cg7EEALW2qemUERIkgQF/CrL8mlyWZYA7wCvwNuT
+PzF+cF75rv0BNP6pAFejwPkAAAAASUVORK5CYII=
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.apache.org/images/apache_home.gif
+
+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
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.apache.org/images/apache_email.gif
+
+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
+
+------=_NextPart_000_0000_01C82B74.B2B55C90
+Content-Type: application/x-css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://svn.apache.org/viewvc-docroot/styles.css
+
+HTML {
+	COLOR: #000000; BACKGROUND-COLOR: #ffffff
+}
+BODY {
+	COLOR: #000000; BACKGROUND-COLOR: #ffffff
+}
+A:link {
+	COLOR: #0000ff
+}
+A:visited {
+	COLOR: #880088
+}
+A:active {
+	COLOR: #0000ff
+}
+IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: =
+none; BORDER-BOTTOM-STYLE: none
+}
+TABLE {
+	MARGIN: 0px; WIDTH: 100%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: =
+none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+TABLE.auto {
+	WIDTH: auto
+}
+TR {
+	VERTICAL-ALIGN: top
+}
+TD {
+	VERTICAL-ALIGN: top
+}
+TH {
+	VERTICAL-ALIGN: top
+}
+FORM {
+	MARGIN: 0px
+}
+.vc_navheader {
+	BACKGROUND-COLOR: #cccccc
+}
+.vc_header {
+	VERTICAL-ALIGN: top; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: left
+}
+.vc_header_sort {
+	BACKGROUND-COLOR: #88ff88; TEXT-ALIGN: left
+}
+.vc_row_even {
+	BACKGROUND-COLOR: #ffffff
+}
+.vc_row_odd {
+	BACKGROUND-COLOR: #ccccee
+}
+.vc_log {
+	WORD-WRAP: break-word
+}
+.vc_summary {
+	BACKGROUND-COLOR: #eeeeee
+}
+#vc_markup .num {
+	COLOR: #000000
+}
+#vc_markup .esc {
+	COLOR: #bd8d8b
+}
+#vc_markup .str {
+	COLOR: #bd8d8b
+}
+#vc_markup .dstr {
+	COLOR: #bd8d8b
+}
+#vc_markup .slc {
+	COLOR: #ac2020; FONT-STYLE: italic
+}
+#vc_markup .com {
+	COLOR: #ac2020; FONT-STYLE: italic
+}
+#vc_markup .dir {
+	COLOR: #000000
+}
+#vc_markup .sym {
+	COLOR: #000000
+}
+#vc_markup .line {
+	COLOR: #555555
+}
+#vc_markup .kwa {
+	FONT-WEIGHT: bold; COLOR: #9c20ee
+}
+#vc_markup .kwb {
+	COLOR: #208920
+}
+#vc_markup .kwc {
+	COLOR: #0000ff
+}
+#vc_markup .kwd {
+	COLOR: #404040
+}
+#vc_markup .PY_STRING {
+	COLOR: #bd8d8b
+}
+#vc_markup .PY_COMMENT {
+	COLOR: #ac2020; FONT-STYLE: italic
+}
+#vc_markup .PY_KEYWORD {
+	FONT-WEIGHT: bold; COLOR: #9c20ee
+}
+#vc_markup .PY_IDENTIFIER {
+	COLOR: #404040
+}
+.line {
+	BORDER-RIGHT: #505050 1px solid; PADDING-RIGHT: 1px; PADDING-LEFT: 1px; =
+FONT-WEIGHT: normal; PADDING-BOTTOM: 1px; COLOR: #505050; PADDING-TOP: =
+1px; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: =
+none
+}
+.vc_diff_header {
+	BACKGROUND-COLOR: #ffffff
+}
+.vc_diff_chunk_header {
+	BACKGROUND-COLOR: #99cccc
+}
+.vc_diff_chunk_extra {
+	FONT-SIZE: smaller
+}
+.vc_diff_empty {
+	FONT-SIZE: smaller; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #cccccc
+}
+.vc_diff_add {
+	FONT-SIZE: smaller; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #aaffaa
+}
+.vc_diff_remove {
+	FONT-SIZE: smaller; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #ffaaaa
+}
+.vc_diff_change {
+	FONT-SIZE: smaller; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #ffff77
+}
+.vc_diff_change_empty {
+	FONT-SIZE: smaller; FONT-FAMILY: sans-serif; BACKGROUND-COLOR: #eeee77
+}
+.vc_diff_nochange {
+	FONT-SIZE: smaller; FONT-FAMILY: sans-serif
+}
+.vc_raw_diff {
+	FONT-SIZE: smaller; BACKGROUND-COLOR: #cccccc
+}
+.vc_idiff_add {
+	BACKGROUND-COLOR: #aaffaa
+}
+.vc_idiff_change {
+	BACKGROUND-COLOR: #ffff77
+}
+.vc_idiff_remove {
+	BACKGROUND-COLOR: #ffaaaa
+}
+.vc_idiff_empty {
+	BACKGROUND-COLOR: #e0e0e0
+}
+TABLE.vc_idiff COL.content {
+	WIDTH: 50%
+}
+TABLE.vc_idiff TBODY {
+	FONT-FAMILY: monospace; WORD-WRAP: break-word
+}
+TABLE.vc_idiff TBODY TH {
+	BACKGROUND-COLOR: #e0e0e0; TEXT-ALIGN: right
+}
+.vc_blame_line {
+	PADDING-RIGHT: 1em; FONT-SIZE: smaller; FONT-FAMILY: monospace; =
+WHITE-SPACE: nowrap; TEXT-ALIGN: right
+}
+.vc_blame_author {
+	PADDING-RIGHT: 1em; FONT-SIZE: smaller; FONT-FAMILY: monospace; =
+WHITE-SPACE: nowrap; TEXT-ALIGN: right
+}
+.vc_blame_rev {
+	PADDING-RIGHT: 1em; FONT-SIZE: smaller; FONT-FAMILY: monospace; =
+WHITE-SPACE: nowrap; TEXT-ALIGN: right
+}
+.vc_blame_text {
+	FONT-SIZE: smaller; WIDTH: 100%; FONT-FAMILY: monospace; WHITE-SPACE: =
+pre; TEXT-ALIGN: left
+}
+.vc_query_form {
+	BACKGROUND-COLOR: #e6e6e6
+}
+
+------=_NextPart_000_0000_01C82B74.B2B55C90--

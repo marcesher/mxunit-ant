@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+ <project xmlns:au="antlib:org.apache.ant.antunit"
+          xmlns="antlib:org.apache.tools.ant" >
+
+
+  <target name="testLog">
+    <au:logcontent level="verbose" />
+    <au:assertLogContains message="this sucks" text="I was a real turtle" />
+  </target>
+
+  <target name="testDir">   
+    <au:assertLogContains message="Log contains this string when task executes successfully" text="Fare thee well, human." />
+    <au:assertFileExists file="results/au.test.properties" message="Missing properties results file"/>
+    <au:assertPropertySet name="total.runs" message="total.runs not set"/>
+    <au:assertEquals expected="8" actual="${total.runs}" message="Should be a total of 8 runs" />
+    <au:assertPropertyEquals value="8" name="total.runs" message="Should be a total of 8 runs" />
+    <au:assertPropertyEquals value=".75" name="success.ratio" message="Should be a total of 75%" />
+  </target>
+
+
+
+
+ <target name="setUp">
+  <au:logcontent level="verbose" />
+  <echo level="error">alas, said the mock turtle, I was a real turtle</echo>
+  <taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask" classpath="../mxunit-ant.jar"   />
+  <mxunittask server="localhost" port="8500"
+              outputdir="tests/results"
+              testResultsSummary="au.test.properties"
+              verbose="true"
+              haltonerror="true"
+              haltonfailure="false">
+
+     <directory path="C:\CFusionMX7\wwwroot\mxunit\tests\framework\fixture\fixturetests"
+                recurse="false" />
+   </mxunittask>
+   <property file="results/au.test.properties" />
+   
+ </target>
+
+
+  <!-- clean up -->
+  <target name="tearDown">
+     <!-- clean up -->
+  </target>
+
+
+</project>

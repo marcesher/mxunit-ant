@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="MyTask" basedir="." default="jar">
+
+    <target name="clean" description="Delete all generated files">
+        <delete dir="classes"/>
+        <delete file="MyTasks.jar"/>
+    </target>
+
+    <target name="compile" description="Compiles the Task">
+        <javac srcdir="src" destdir="classes"/>
+    </target>
+
+    <target name="jar" description="JARs the Task">
+        <jar destfile="MyTask.jar" basedir="classes"/>
+    </target>
+
+</project>
