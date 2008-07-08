@@ -273,7 +273,7 @@ private void runDirectoryTests() {
       }
 
       String qs = "method=" + d.getRemoteMethod() +"&type=dir&value=" + d.getPath() +
-                  "&recurse=" + d.getRecurse() + "&packageName=" +  d.getPackageName() +
+                  "&recurse=" + d.getRecurse() + "&excludes=" + d.getExcludes() + "&packageName=" +  d.getPackageName() +
                   "&componentPath=" + d.getComponentPath();
       String outputFileName = outputdir + "/mxunitdirectorytestsuite_" + ++counter + ".xml";
 
