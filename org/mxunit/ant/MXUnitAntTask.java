@@ -332,7 +332,6 @@ private void doTest(String queryString, String fileName, String runner) throws B
       System.out.println("[mxunit error] Error trying to write to : " + outputdir + ". Please make sure this output dircetory exists.");
       System.out.println("[mxunit error] Exiting ... see stacktrace for details.");
       ioe.printStackTrace();
-      System.exit(-1);
     }
     catch(BuildException be){
       throw new BuildException(be);
