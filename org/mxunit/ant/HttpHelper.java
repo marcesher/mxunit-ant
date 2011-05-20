@@ -205,8 +205,10 @@ public class HttpHelper {
   }
 
   public String getHttpResponseString(){
+    if( this.httpResponseString == null ){
+	  this.httpResponseString = inputStreamToString(getHttpInputStream());
+    }
     return this.httpResponseString;
-
   }
 
 

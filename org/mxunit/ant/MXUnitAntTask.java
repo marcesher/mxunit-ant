@@ -28,7 +28,7 @@ import java.text.DecimalFormat;
  */
 public class MXUnitAntTask extends Task {
 
-    String version = "1.0.1";
+    String version = "1.0.6";
     //private Project project;
 
     String server;
@@ -294,6 +294,7 @@ private void doTest(String queryString, String fileName, String runner) throws B
       log("[HttpStatus] " + status);
 
       if (status > 304){
+    	log("[HttpStatus] -- error. Output was: " + helper.getHttpResponseString());
         throw new BuildException("Http Status returned an error. HttpStatus code: " + status);
       }
 

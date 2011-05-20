@@ -1,93 +1,77 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="MXUnitTask" basedir="." default="main">
 
-  <property file="buildprops/build.properties" />
 
-  <path id="project.class.path">
-      <pathelement location="lib/"/>
-      <pathelement path="C:/Documents and Settings/Billy/workspace/MXUnit Ant Task/lib/commons-httpclient-3.1.jar;"/>
-      <pathelement path="${mxunit.jar}"/>
-    </path>
+	<target name="init">
+		<echo message="Attempting to include buildprops/${user.name}.properties for any property overrides" />
+		<property file="buildprops/${user.name}.properties" />
+		<property file="buildprops/build.properties" />
 
-
-    <target name="clean" description="Delete all generated files">
-        <delete dir="${mxunit.jar}" failonerror="false"/>
-    </target>
-
-    <target name="compile" description="Compiles the Task" depends="clean">
-        <mkdir dir="${classes.dir}"/>
-        <javac verbose="true" compiler="jikes" srcdir="${src.dir}" destdir="${classes.dir}" classpath="${ant.test.lib},${httpclient.dir}/commons-httpclient-3.1.jar" />
-    </target>
-
-    <target name="jar" description="JARs the Task" depends="compile">
-        <jar destfile="${mxunit.jar}" basedir="${classes.dir}">
-          <fileset dir="${httpclient.dir}/httpclient" /> <!-- -->
-        </jar>
-    </target>
+		<path id="project.class.path">
+			<fileset dir="lib">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+	</target>
 
 
-    <target name="testErr" depends="compile,jar">
-        <echo>Run</echo>
-         <taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask" classpath="mxunit-ant.jar"   />
-           <mxunittask server="localhost" port="8500"
-                       verbose="true"
-                       errorProperty="my.err.prop"
-               	       failureproperty="my.fail.prop">
-           
-                <testcase name="mxunit.tests.samples.MyComponentTest"  />
-            </mxunittask>  
-         <echo>${my.fail.prop}</echo>
-        
-        <mxunittask server="localhost" port="8500"
-                    verbose="true"
-                    errorProperty="my.err.prop"
-                    failureproperty="my.failure.prop">
-                  
-         <testcase name="mxunit.tests.framework.MyCFCTest"  />
-        </mxunittask>  
-        <echo>${my.failure.prop}</echo>
-     </target>
-    
-    
-    
+	<target name="clean" description="Delete all generated files">
+		<delete dir="${mxunit.jar}" failonerror="false" />
+	</target>
 
-  <target name="runTests" description="Test the MXUnit Task" depends="compile,jar">
-   <echo>Running tests</echo>
-   <!-- Run the ant-unit tests in ./tests-->
-   <ant dir="tests" />
-  </target>
+	<target name="compile" description="Compiles the Task" depends="clean,init">
+		<mkdir dir="${classes.dir}" />
+		<javac verbose="true" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.class.path" />
+	</target>
 
-   <target name="use" description="Use the MXUnit Task" depends="jar">
-     <mkdir dir="${junit.out.dir.html}" />
-     <mkdir dir="${output.dir}" />
-     
-     
-<!--   -->
-
-     <taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask" classpath="${mxunit.jar}"   />
-        <mxunittask server="localhost" port="8500"
-                    defaultrunner=""
-                    outputdir="${output.dir}"
-                    verbose="true"
-                    testResultsSummary="${testrestults.summary}"
-                    haltonerror="true"
-                    haltonfailure="false">
+	<target name="jar" description="JARs the Task" depends="compile">
+		<jar destfile="${mxunit.jar}" basedir="${classes.dir}">
+			<fileset dir="lib/httpclient" />
+			<!-- -->
+		</jar>
+	</target>
 
 
-                <directory 
-                           remoteMethod="run"
-                           path="${component.path}\mxunit\tests\framework"
-                           packageName="mxunit.tests.framework"
-                           recurse="false"
-                           excludes="" />
+	<target name="testErr" depends="compile,jar">
+		<echo>Run</echo>
+		<taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask" classpath="mxunit-ant.jar" />
+		<mxunittask server="localhost" port="8500" verbose="true" errorProperty="my.err.prop" failureproperty="my.fail.prop">
 
-                <directory runner="/mxunit/runner/HttpAntRunner.cfc"
-                           remoteMethod="run"
-                           path="${component.path}\mxunit\tests\runner"
-                           packageName="mxunit.tests.runner"
-                           recurse="false"
-                           excludes="" />
-<!--
+			<testcase name="mxunit.tests.samples.MyComponentTest" />
+		</mxunittask>
+		<echo>${my.fail.prop}</echo>
+
+		<mxunittask server="localhost" port="8500" verbose="true" errorProperty="my.err.prop" failureproperty="my.failure.prop">
+
+			<testcase name="mxunit.tests.framework.MyCFCTest" />
+		</mxunittask>
+		<echo>${my.failure.prop}</echo>
+	</target>
+
+
+
+
+	<target name="runTests" description="Test the MXUnit Task" depends="compile,jar">
+		<echo>Running tests</echo>
+		<!-- Run the ant-unit tests in ./tests-->
+		<ant dir="tests" />
+	</target>
+
+	<target name="use" description="Use the MXUnit Task" depends="jar">
+		<mkdir dir="${junit.out.dir.html}" />
+		<mkdir dir="${output.dir}" />
+
+
+		<!--   -->
+
+		<taskdef name="mxunittask" classname="org.mxunit.ant.MXUnitAntTask" classpath="${mxunit.jar}" />
+		<mxunittask server="localhost" port="8500" defaultrunner="" outputdir="${output.dir}" verbose="true" testResultsSummary="${testrestults.summary}" haltonerror="true" haltonfailure="false">
+
+
+			<directory remoteMethod="run" path="${component.path}\mxunit\tests\framework" packageName="mxunit.tests.framework" recurse="false" excludes="" />
+
+			<directory runner="/mxunit/runner/HttpAntRunner.cfc" remoteMethod="run" path="${component.path}\mxunit\tests\runner" packageName="mxunit.tests.runner" recurse="false" excludes="" />
+			<!--
                <directory runner="/mxunit/runner/HttpAntRunner.cfc"
                           remoteMethod="run"
                           path="${component.path}\mxunit\samples"
@@ -102,31 +86,31 @@
                           recurse="false"
                           excludes="" />
 -->
-      </mxunittask>
-  </target>
+		</mxunittask>
+	</target>
 
-  <target name="main" depends="runTests" />
+	<target name="main" depends="runTests" />
 
-  <target name="junitreport" depends="use" description="Create a report for the rest result">
-     <property file="${output.dir}/${testrestults.summary}" />
-     <echoproperties />
-      <mkdir dir="${junit.out.dir.html}"/>
-            <junitreport todir="${junit.out.dir.html}">
-                <fileset dir="${output.dir}">
-                    <include name="*.xml"/>
-                </fileset>
-                <report format="frames" todir="${junit.out.dir.html}" styledir="${style.dir}"/>
-            </junitreport>
-      </target>
+	<target name="junitreport" depends="use" description="Create a report for the rest result">
+		<property file="${output.dir}/${testrestults.summary}" />
+		<echoproperties />
+		<mkdir dir="${junit.out.dir.html}" />
+		<junitreport todir="${junit.out.dir.html}">
+			<fileset dir="${output.dir}">
+				<include name="*.xml" />
+			</fileset>
+			<report format="frames" todir="${junit.out.dir.html}" styledir="${style.dir}" />
+		</junitreport>
+	</target>
 
 
 
-<!-- Billy's stuff ....-->
-<target name="browse" depends="junitreport">
-  <exec executable="C:\Program Files\Internet Explorer\iexplore.exe">
-    <arg value="C:\Documents and Settings\Billy\workspace\mxunit-ant\testresults\html\index.html"/>
-  </exec>
-</target>
+	<!-- Billy's stuff ....-->
+	<target name="browse" depends="junitreport">
+		<exec executable="C:\Program Files\Internet Explorer\iexplore.exe">
+			<arg value="C:\Documents and Settings\Billy\workspace\mxunit-ant\testresults\html\index.html" />
+		</exec>
+	</target>
 
 
 
