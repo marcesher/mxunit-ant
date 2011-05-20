@@ -21,7 +21,7 @@
 
 	<target name="compile" description="Compiles the Task" depends="clean,init">
 		<mkdir dir="${classes.dir}" />
-		<javac verbose="true" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.class.path" />
+		<javac verbose="true" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.class.path" target="1.5" source="1.5" />
 	</target>
 
 	<target name="jar" description="JARs the Task" depends="compile">
